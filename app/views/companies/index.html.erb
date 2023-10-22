@@ -1,0 +1,14 @@
+Company
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  <% @companies.each do |company| %>
+    <tr>
+      <th><%= company.name %></th>
+      <th><%= link_to 'Download users csv', company_users_path(company_id: company.id), download: true %></th>
+    </tr>
+  <% end %>
+</table>
