@@ -2,6 +2,7 @@
 
 class EmailValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
+    return true if value.blank?
     return true if value.match?(URI::MailTo::EMAIL_REGEXP)
 
     record.errors.add(:email)
